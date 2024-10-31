@@ -15,13 +15,14 @@ pipeline {
                 // Checkout the code from the repository
                 git 'https://github.com/kumarsuresh03/Backend.git' // Replace with your repo
             }
-        } // Close the Checkout stage
+        }
 
         stage('Build Docker Image') {
             steps {
-                script {
-                    // Build Backend Docker Image
-                    docker.build(BACKEND_IMAGE, '.')
+                dir('my-express-app') { // Set path to where the Dockerfile is located
+                    script {
+                        docker.build(BACKEND_IMAGE, '.')
+                    }
                 }
             }
         }
@@ -40,5 +41,5 @@ pipeline {
                 }
             }
         }
-    } // Close the stages block
-} // Close the pipeline block
+    }
+}
