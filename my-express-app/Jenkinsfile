@@ -15,6 +15,7 @@ pipeline {
                 // Checkout the code from the repository
                 git 'https://github.com/kumarsuresh03/Backend.git' // Replace with your repo
             }
+        } // Close the Checkout stage
 
         stage('Build Docker Image') {
             steps {
@@ -39,6 +40,5 @@ pipeline {
                 }
             }
         }
-       
-    }
-}
+    } // Close the stages block
+} // Close the pipeline block
