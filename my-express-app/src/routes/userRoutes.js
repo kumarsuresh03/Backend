@@ -7,3 +7,6 @@ const router = express.Router();
 router.get('/', getAllUsers);
 
 module.exports = router;
+
+
+
